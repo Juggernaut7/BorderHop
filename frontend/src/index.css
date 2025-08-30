@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Enhanced Light Theme Colors */
+    --color-primary: 37 99 235;      /* Blue-600 - Primary brand color */
+    --color-secondary: 124 58 237;   /* Purple-600 - Secondary brand color */
+    --color-accent: 8 145 178;       /* Cyan-600 - Accent color */
+    --color-success: 34 197 94;      /* Green-500 - Success states */
+    --color-warning: 245 158 11;     /* Amber-500 - Warning states */
+    --color-error: 239 68 68;        /* Red-500 - Error states */
+    
+    /* Enhanced Background Colors */
+    --color-background: 255 255 255; /* Pure white */
+    --color-surface: 248 250 252;    /* Slate-50 - Card backgrounds */
+    --color-surface-elevated: 241 245 249; /* Slate-100 - Elevated surfaces */
+    --color-surface-hover: 226 232 240; /* Slate-200 - Hover states */
+    
+    /* Enhanced Text Colors */
+    --color-text: 15 23 42;          /* Slate-900 - Primary text */
+    --color-text-secondary: 71 85 105; /* Slate-600 - Secondary text */
+    --color-text-tertiary: 148 163 184; /* Slate-400 - Tertiary text */
+    --color-text-inverse: 248 250 252; /* Slate-50 - Text on dark backgrounds */
+    
+    /* Enhanced Border Colors */
+    --color-border: 226 232 240;     /* Slate-200 - Light borders */
+    --color-border-strong: 203 213 225; /* Slate-300 - Strong borders */
+    --color-border-focus: 37 99 235;  /* Blue-600 - Focus states */
+    
+    /* Special Colors */
+    --color-circle: 37 99 235;        /* Circle brand blue */
+    --color-ethereum: 237 137 54;     /* Ethereum orange */
+    --color-base: 0 0 0;              /* Base black */
+    --color-arbitrum: 40 44 52;       /* Arbitrum dark */
+  }
+
+  .dark {
+    /* Enhanced Dark Theme Colors */
+    --color-primary: 59 130 246;      /* Blue-500 - Primary brand color */
+    --color-secondary: 139 92 246;    /* Purple-500 - Secondary brand color */
+    --color-accent: 6 182 212;        /* Cyan-500 - Accent color */
+    --color-success: 34 197 94;       /* Green-500 - Success states */
+    --color-warning: 245 158 11;      /* Amber-500 - Warning states */
+    --color-error: 239 68 68;         /* Red-500 - Error states */
+    
+    /* Enhanced Dark Background Colors */
+    --color-background: 15 23 42;     /* Slate-900 - Main background */
+    --color-surface: 30 41 59;        /* Slate-800 - Card backgrounds */
+    --color-surface-elevated: 51 65 85; /* Slate-700 - Elevated surfaces */
+    --color-surface-hover: 71 85 105; /* Slate-600 - Hover states */
+    
+    /* Enhanced Dark Text Colors */
+    --color-text: 248 250 252;        /* Slate-50 - Primary text */
+    --color-text-secondary: 203 213 225; /* Slate-300 - Secondary text */
+    --color-text-tertiary: 148 163 184; /* Slate-400 - Tertiary text */
+    --color-text-inverse: 15 23 42;   /* Slate-900 - Text on light backgrounds */
+    
+    /* Enhanced Dark Border Colors */
+    --color-border: 51 65 85;         /* Slate-700 - Dark borders */
+    --color-border-strong: 71 85 105; /* Slate-600 - Strong borders */
+    --color-border-focus: 59 130 246; /* Blue-500 - Focus states */
+    
+    /* Special Colors (Dark) */
+    --color-circle: 59 130 246;       /* Circle brand blue */
+    --color-ethereum: 237 137 54;     /* Ethereum orange */
+    --color-base: 255 255 255;        /* Base white */
+    --color-arbitrum: 40 44 52;       /* Arbitrum dark */
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    scroll-behavior: smooth;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-variation-settings: 'slnt' 0;
+  }
+  
+  body {
+    @apply antialiased;
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-text));
+    transition: background-color 0.5s ease, color 0.5s ease;
+    line-height: 1.6;
+  }
+
+  /* Enhanced Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  /* Monospace font for addresses and code */
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--color-surface));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgb(var(--color-primary)), rgb(var(--color-secondary)));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgb(var(--color-secondary)), rgb(var(--color-accent)));
+  }
+
+  /* Selection colors */
+  ::selection {
+    background: rgb(var(--color-primary) / 0.2);
+    color: rgb(var(--color-text));
+  }
+
+  ::-moz-selection {
+    background: rgb(var(--color-primary) / 0.2);
+    color: rgb(var(--color-text));
+  }
+}
+
+@layer components {
+  /* Enhanced Button Components with Consistent Sizing */
+  .btn-primary {
+    @apply relative overflow-hidden bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold py-3.5 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:shadow-primary-500/25 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+    min-height: 48px;
+  }
+  
+  .btn-secondary {
+    @apply relative overflow-hidden bg-gradient-to-r from-surface to-surface-elevated text-primary-600 dark:text-primary-400 font-semibold py-3.5 px-6 rounded-xl border border-border transition-all duration-300 transform hover:scale-[1.02] hover:border-primary-500 hover:bg-primary-500/5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+    min-height: 48px;
+  }
+  
+  .btn-outline {
+    @apply relative overflow-hidden bg-transparent text-primary-600 dark:text-primary-400 font-semibold py-3.5 px-6 rounded-xl border-2 border-primary-500/30 transition-all duration-300 transform hover:scale-[1.02] hover:border-primary-500 hover:bg-primary-500/5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+    min-height: 48px;
+  }
+  
+  .btn-ghost {
+    @apply relative overflow-hidden bg-transparent text-primary-600 dark:text-primary-400 font-medium py-2.5 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] hover:bg-primary-500/10 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+    min-height: 40px;
+  }
+
+  .btn-sm {
+    @apply py-2 px-4 text-sm;
+    min-height: 36px;
+  }
+
+  .btn-lg {
+    @apply py-4 px-8 text-lg;
+    min-height: 56px;
+  }
+
+  /* Enhanced Card Components */
+  .card {
+    @apply relative overflow-hidden bg-gradient-to-br from-surface to-surface/50 rounded-2xl shadow-sm border border-border/50 p-6 transition-all duration-300 hover:shadow-lg hover:border-primary-200/50 dark:hover:border-primary-700/50 backdrop-blur-sm;
+  }
+
+  .card-elevated {
+    @apply relative overflow-hidden bg-gradient-to-br from-surface-elevated to-surface/80 rounded-2xl shadow-md border border-border/50 p-6 transition-all duration-300 hover:shadow-xl hover:border-primary-200/50 dark:hover:border-primary-700/50 backdrop-blur-sm;
+  }
+
+  /* Enhanced Form Components */
+  .input-field {
+    @apply w-full px-4 py-3 bg-surface border border-border rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 placeholder:text-text-tertiary disabled:opacity-50 disabled:cursor-not-allowed;
+    min-height: 48px;
+  }
+
+  .input-field:focus {
+    @apply shadow-sm shadow-primary-500/10;
+  }
+
+  .input-field.error {
+    @apply border-error-500 focus:ring-error-500 focus:border-error-500;
+  }
+
+  /* Enhanced Loading States */
+  .loading-spinner {
+    @apply animate-spin rounded-full border-2 border-primary-200 border-t-primary-500;
+  }
+
+  .loading-dots {
+    @apply inline-flex space-x-1;
+  }
+
+  .loading-dots > div {
+    @apply w-2 h-2 bg-primary-500 rounded-full animate-bounce;
+  }
+
+  .loading-dots > div:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .loading-dots > div:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  /* Enhanced Status Indicators */
+  .status-success {
+    @apply text-success-600 bg-success-50 dark:bg-success-900/20 border border-success-200 dark:border-success-800;
+  }
+
+  .status-warning {
+    @apply text-warning-600 bg-warning-50 dark:bg-warning-900/20 border border-warning-200 dark:border-warning-800;
+  }
+
+  .status-error {
+    @apply text-error-600 bg-error-50 dark:bg-error-900/20 border border-error-200 dark:border-error-800;
+  }
+
+  .status-info {
+    @apply text-primary-600 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800;
+  }
+
+  /* Enhanced Chain Badges */
+  .chain-badge {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-medium text-sm border;
+  }
+
+  .chain-badge.ethereum {
+    @apply bg-orange-50 text-orange-700 border-orange-200 dark:bg-orange-900/20 dark:text-orange-400 dark:border-orange-800;
+  }
+
+  .chain-badge.base {
+    @apply bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-800;
+  }
+
+  .chain-badge.arbitrum {
+    @apply bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-900/20 dark:text-purple-400 dark:border-purple-800;
+  }
+
+  /* Enhanced Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Enhanced Responsive Utilities */
+  .container-responsive {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  /* Enhanced Mobile Optimizations */
+  @media (max-width: 640px) {
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+      @apply py-4 px-6 text-base;
+      min-height: 52px;
+    }
+
+    .input-field {
+      @apply py-4 px-4 text-base;
+      min-height: 52px;
+    }
+
+    .card {
+      @apply p-4;
+    }
+  }
+}

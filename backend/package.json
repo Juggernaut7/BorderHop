@@ -1,0 +1,45 @@
+{
+  "name": "borderhop-backend",
+  "version": "1.0.0",
+  "description": "AI-Powered Multichain USDC Remittance Gateway Backend",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "borderhop",
+    "cctp",
+    "usdc",
+    "multichain",
+    "remittances",
+    "defi",
+    "circle"
+  ],
+  "author": "BorderHop Team",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.8.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.18.0",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.7",
+    "twilio": "^4.19.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0",
+    "@types/uuid": "^9.0.7",
+    "nodemon": "^3.1.10",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}
