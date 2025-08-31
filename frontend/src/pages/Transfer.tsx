@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useAccount, useChainId } from 'wagmi';
-import { Circle, AlertCircle, ArrowRight, CheckCircle, Clock, Zap, RefreshCw } from 'lucide-react';
+import { Circle, AlertCircle, ArrowRight, Clock, Zap, RefreshCw } from 'lucide-react';
 import toast from 'react-hot-toast';
 import ConnectWallet from '../components/wallet/ConnectWallet';
 import TransferForm from '../components/transfer/TransferForm';
@@ -18,10 +18,10 @@ const Transfer = () => {
   const [transferData, setTransferData] = useState<any>(null);
   const [transferId, setTransferId] = useState<string | null>(null);
   const [transferStatus, setTransferStatus] = useState<any>(null);
-  const [isProcessing, setIsProcessing] = useState(false);
+  // const [isProcessing, setIsProcessing] = useState(false);
 
   // Get current chain info with better error handling
-  const currentChain = chainId ? chainConfig[chainId] : null;
+  const currentChain = chainId ? (chainConfig as any)[chainId] : null;
   const isSupportedChain = chainId && chains.some(chain => chain.id === chainId);
 
   console.log('Transfer page debug:', { chainId, currentChain, isSupportedChain, isConnected, address });

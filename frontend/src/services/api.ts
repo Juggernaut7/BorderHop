@@ -78,7 +78,7 @@ export class BorderHopAPI {
     email?: string;
     note?: string;
   }) {
-    const response = await api.post('/remittance/initiate', transferData);
+    const response = await api.post('/remittance/transfer', transferData);
     return response.data;
   }
 

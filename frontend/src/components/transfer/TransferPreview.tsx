@@ -3,13 +3,19 @@ import { motion } from 'framer-motion';
 import { 
   ArrowRight, 
   CheckCircle, 
-  AlertCircle, 
   Info,
   Circle,
   Zap,
   TrendingUp,
   DollarSign
 } from 'lucide-react';
+
+const safeToFixed = (value: any, decimals: number = 2): string => {
+  if (typeof value === 'number' && !isNaN(value)) {
+    return value.toFixed(decimals);
+  }
+  return '0'.padEnd(decimals + 1, '0');
+};
 
 interface TransferPreviewProps {
   transferData: {
@@ -141,11 +147,11 @@ const TransferPreview: React.FC<TransferPreviewProps> = ({
             <div className="flex items-center justify-between p-4 bg-primary-50 dark:bg-primary-900/20 rounded-xl">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                  ${transferData.amount.toFixed(2).split('.')[0]}
+                  ${safeToFixed(transferData.amount, 2).split('.')[0]}
                 </div>
                 <div>
                   <div className="font-semibold text-text">
-                    {transferData.amount.toFixed(2)} USDC
+                    {safeToFixed(transferData.amount, 2)} USDC
                   </div>
                   <div className="text-sm text-text-secondary">Transfer Amount</div>
                 </div>
@@ -223,7 +229,7 @@ const TransferPreview: React.FC<TransferPreviewProps> = ({
                 <Zap className="w-4 h-4 text-neutral-500" />
                 <span className="text-neutral-600">Gas Fee (Estimated)</span>
               </div>
-              <span className="font-medium text-neutral-900">${(routeData.estimatedFees - 0.001).toFixed(3)}</span>
+              <span className="font-medium text-neutral-900">${typeof routeData.estimatedFees === 'number' ? (routeData.estimatedFees - 0.001).toFixed(3) : '0.000'}</span>
             </div>
             
             <div className="flex items-center justify-between p-4 bg-gradient-to-r from-success-50 to-success-100 border border-success-200 rounded-lg">
@@ -231,7 +237,7 @@ const TransferPreview: React.FC<TransferPreviewProps> = ({
                 <CheckCircle className="w-4 h-4 text-success-500" />
                 <span className="text-success-700 font-medium">Total Fees</span>
               </div>
-              <span className="font-bold text-success-700">${routeData.estimatedFees.toFixed(3)}</span>
+              <span className="font-bold text-success-700">${safeToFixed(routeData.estimatedFees, 3)}</span>
             </div>
           </div>
 
@@ -244,7 +250,7 @@ const TransferPreview: React.FC<TransferPreviewProps> = ({
             <div className="flex items-center justify-between">
               <span className="text-neutral-600">You Save:</span>
               <span className="font-bold text-success-600">
-                ${savings.toFixed(2)} ({savingsPercentage.toFixed(1)}%)
+                ${safeToFixed(savings.savings, 2)} ({safeToFixed(savings.savingsPercentage, 1)}%)
               </span>
             </div>
           </div>

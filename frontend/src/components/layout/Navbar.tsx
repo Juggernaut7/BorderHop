@@ -3,14 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { useAccount, useDisconnect } from 'wagmi';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Wallet, 
   Menu, 
   X, 
-  Globe, 
   BarChart3, 
   History, 
   Send, 
-  Sparkles,
   Settings,
   HelpCircle,
   User,
@@ -30,7 +27,7 @@ const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { isConnected, address } = useAccount();
   const { disconnect } = useDisconnect();
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
   const location = useLocation();
 
   // Primary navigation - essential items for navbar

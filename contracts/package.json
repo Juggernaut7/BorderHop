@@ -6,19 +6,34 @@
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
+    "deploy:quick": "node deploy-quick.js",
+    "deploy:simple": "hardhat run deploy-simple.js --network sepolia",
     "deploy:sepolia": "hardhat run scripts/deploy-sepolia.js --network sepolia",
-    "deploy:base": "hardhat run scripts/deploy-base.js --network base-sepolia",
-    "deploy:arbitrum": "hardhat run scripts/deploy-arbitrum.js --network arbitrum-sepolia",
+    "deploy:base": "hardhat run scripts/deploy-base-sepolia.js --network base-sepolia",
+    "deploy:arbitrum": "hardhat run scripts/deploy-arbitrum-sepolia.js --network arbitrum-sepolia",
+    "deploy:all": "hardhat run scripts/deploy-all-networks.js",
     "verify:sepolia": "hardhat verify --network sepolia",
     "verify:base": "hardhat verify --network base-sepolia",
     "verify:arbitrum": "hardhat verify --network arbitrum-sepolia"
   },
-  "keywords": ["borderhop", "cctp", "usdc", "multichain", "remittances", "defi", "circle", "hackathon"],
+  "keywords": [
+    "borderhop",
+    "cctp",
+    "usdc",
+    "multichain",
+    "remittances",
+    "defi",
+    "circle",
+    "hackathon"
+  ],
   "author": "BorderHop Team - Circle Developer Bounties 2025",
   "license": "MIT",
   "devDependencies": {
-    "hardhat": "^2.19.0",
-    "@openzeppelin/contracts": "^5.0.0"
+    "hardhat": "^2.19.0"
   },
-  "dependencies": {}
-} 
+  "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "dotenv": "^17.2.1",
+    "hardhat-deploy": "^1.0.4"
+  }
+}

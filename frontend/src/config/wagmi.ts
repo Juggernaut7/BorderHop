@@ -1,5 +1,5 @@
 import { http, createConfig } from 'wagmi';
-import { mainnet, sepolia, base, baseSepolia, arbitrum, arbitrumSepolia } from 'wagmi/chains';
+import { sepolia, baseSepolia, arbitrumSepolia } from 'wagmi/chains';
 import { 
   injected, 
   metaMask
@@ -17,14 +17,10 @@ export const config = createConfig({
   chains,
   connectors: [
     // Injected connector (supports most wallets including Rabby, Trust Wallet, etc.)
-    injected({
-      shimDisconnect: true,
-    }),
+    injected(),
     
     // MetaMask
-    metaMask({
-      shimDisconnect: true,
-    }),
+    metaMask(),
   ],
   transports: {
     [sepolia.id]: http(`https://sepolia.infura.io/v3/${import.meta.env.VITE_INFURA_PROJECT_ID || '7b9e224980974fa88809386d7c7c6803'}`),

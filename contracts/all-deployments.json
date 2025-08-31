@@ -1,0 +1,12 @@
+[
+  {
+    "network": "Ethereum Sepolia",
+    "contract": "BorderHopHook",
+    "address": "0xdAdc4B753D0B76147fe3b77623AC7f83783E3b62",
+    "deployer": "0xF39cE20c6A905157cF532890ed87b86f422774b7",
+    "txHash": "0x329eed045a4f9ea90dfcac3fb9769ad7e6ce20e110c4638232d97db0fbbf96a6",
+    "chainId": 11155111,
+    "cctpTokenMessenger": "0x9f3b8679c73c2fef8b59b4f3444d4e156fb70aa5",
+    "usdc": "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238"
+  }
+]

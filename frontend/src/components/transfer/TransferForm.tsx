@@ -11,12 +11,8 @@ import {
   TrendingUp, 
   DollarSign,
   Circle,
-  Sparkles,
-  ExternalLink
+  Sparkles
 } from 'lucide-react';
-import LoadingSpinner from '../ui/LoadingSpinner';
-import ErrorMessage from '../ui/ErrorMessage';
-import ChainSelector from '../ui/ChainSelector';
 
 // Transfer form validation schema
 const transferSchema = z.object({
@@ -43,15 +39,15 @@ const TransferForm: React.FC<TransferFormProps> = ({ onSubmit }) => {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isValid, isSubmitting }
+    formState: { errors, isValid }
   } = useForm<TransferFormData>({
     resolver: zodResolver(transferSchema),
     mode: 'onChange'
   });
 
-  const [selectedSourceChain, setSelectedSourceChain] = useState<any>(null);
-  const [selectedDestChain, setSelectedDestChain] = useState<any>(null);
-  const [apiError, setApiError] = useState<string | null>(null);
+  // const [selectedSourceChain, setSelectedSourceChain] = useState<any>(null);
+  // const [selectedDestChain, setSelectedDestChain] = useState<any>(null);
+  // const [apiError, setApiError] = useState<string | null>(null);
 
   const watchedValues = watch();
 

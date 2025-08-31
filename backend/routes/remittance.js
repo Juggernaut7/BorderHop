@@ -102,7 +102,7 @@ router.post('/route', async (req, res) => {
 });
 
 // Initialize remittance transfer
-router.post('/initiate', async (req, res) => {
+router.post('/transfer', async (req, res) => {
   try {
     const { 
       senderAddress, 
@@ -244,6 +244,13 @@ router.post('/initiate', async (req, res) => {
       message: error.message 
     });
   }
+});
+
+// Alias for backward compatibility
+router.post('/initiate', async (req, res) => {
+  // Forward to the transfer endpoint
+  req.url = '/transfer';
+  return router.handle(req, res);
 });
 
 // Get transfer status
