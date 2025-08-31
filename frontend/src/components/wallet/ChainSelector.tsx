@@ -10,7 +10,7 @@ const ChainSelector = () => {
   const chainId = useChainId();
   const { switchChain, isPending } = useSwitchChain();
 
-  const supportedChains = Object.values(chainConfig);
+  const supportedChains = Object.entries(chainConfig).map(([id, chain]) => ({ ...chain, id: parseInt(id) }));
 
   const currentChain = chain ? (chainConfig as any)[chain.id] : null;
 
