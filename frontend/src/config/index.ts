@@ -31,7 +31,7 @@ export const config = {
 
   // Backend API Configuration
   api: {
-    baseUrl: process.env.REACT_APP_API_URL || "http://localhost:5000",
+    baseUrl: process.env.REACT_APP_API_URL || "https://borderhop.onrender.com",
     endpoints: {
       transfer: "/api/remittance/transfer",
       status: "/api/remittance/status",
