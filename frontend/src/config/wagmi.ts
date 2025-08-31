@@ -10,7 +10,7 @@ export const chains = [
   sepolia,      // Ethereum Sepolia testnet
   baseSepolia,  // Base Sepolia testnet
   arbitrumSepolia, // Arbitrum Sepolia testnet
-];
+] as const;
 
 // Configure your dApps chains
 export const config = createConfig({

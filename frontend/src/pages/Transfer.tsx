@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useAccount, useChainId } from 'wagmi';
 import { Circle, AlertCircle, ArrowRight, Clock, Zap, RefreshCw } from 'lucide-react';
 import toast from 'react-hot-toast';
@@ -18,7 +18,7 @@ const Transfer = () => {
   const [transferData, setTransferData] = useState<any>(null);
   const [transferId, setTransferId] = useState<string | null>(null);
   const [transferStatus, setTransferStatus] = useState<any>(null);
-  // const [isProcessing, setIsProcessing] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   // Get current chain info with better error handling
   const currentChain = chainId ? (chainConfig as any)[chainId] : null;

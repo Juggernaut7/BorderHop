@@ -12,7 +12,7 @@ const ChainSelector = () => {
 
   const supportedChains = Object.values(chainConfig);
 
-  const currentChain = chain ? chainConfig[chain.id] : null;
+  const currentChain = chain ? (chainConfig as any)[chain.id] : null;
 
   const handleSwitchChain = (targetChainId: number) => {
     switchChain?.({ chainId: targetChainId });
@@ -64,7 +64,7 @@ const ChainSelector = () => {
                 return (
                   <button
                     key={chainInfo.name}
-                    onClick={() => handleSwitchChain(chainInfo.chainId)}
+                    onClick={() => handleSwitchChain(chainInfo.id)}
                     disabled={isCurrentChain || isPending}
                     className={`w-full px-4 py-3 text-left transition-colors duration-200 flex items-center space-x-3 ${
                       isCurrentChain
