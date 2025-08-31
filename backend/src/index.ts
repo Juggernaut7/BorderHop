@@ -114,6 +114,22 @@ app.use('/api/remittance', remittanceRoutes);
 app.use('/api/defi', defiRoutes);
 app.use('/api/analytics', analyticsRoutes);
 
+// Root endpoint
+app.get('/', (req: Request, res: Response) => {
+  res.json({
+    service: 'BorderHop Backend API',
+    version: '1.0.0',
+    status: 'running',
+    endpoints: {
+      health: '/health',
+      api: '/api/*',
+      circle: '/api/circle/status'
+    },
+    documentation: 'BorderHop Cross-Chain Remittance API',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Health check endpoint
 app.get('/health', (req: Request, res: Response) => {
   res.json({ 
